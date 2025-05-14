@@ -1,0 +1,319 @@
+=================================================================================================
+
+		Project Title		:	Employee Management System 
+
+		Client			:	BridgeSoft, Codetru,  FusionTech 
+
+		Environments		:	Java 8, Spring Boot, ReactJS & Bootstrap
+
+		Database		:	MySQL 
+
+		Tools			:	Maven, Postman, GIT/GITHUB  	
+
+===================================================================================================
+
+
+Steps to develop Employee Management System project
+====================================================
+
+frontend
+|
+|-----node_modules
+|
+|-----public 
+|	
+|-----src
+|	|
+	|---index.js 
+	|---index.css
+
+	|---App.js 
+	|---App.css
+	|---App.test.js 
+	
+	|---components
+		|
+		|---HeaderComponent.js 
+		|---EmployeeListComponent.js
+		|---FooterComponent.js 
+
+|-----package.json 
+|-----README.md
+
+step1:
+------
+	Open the VSC editor from "frontend-worspace" location.
+	ex:
+		frontend-workspace> code  . 
+
+step2:
+-----
+	Create a react project i.e frontend.
+	ex:
+		npx create-react-app frontend
+
+
+step3:
+------
+	Switch to the project.
+	ex:
+		cd  frontend
+
+step4:
+------	
+	Install web-vitals, bootstrap,axios and react router library.
+	ex:
+		frontend> npm install web-vitals;
+		frontend> npm install bootstrap 
+		frontend> npm install axios 
+		frontend> npm install react-router-dom 
+
+step5:
+------
+	Import the bootstrap inside index.js file.
+
+index.js 
+---------
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+step6:
+------
+	Create a components folder inside "src" folder.
+
+
+step7:
+------
+	Create a HeaderComponent.js file inside "components" folder.
+
+HeaderComponent.js
+------------------
+import React from 'react'
+
+function HeaderComponent() {
+  return (
+    
+        <header>
+            <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+                <div className='container'>
+                    <a href="" className='navbar-brand'> BridgeSoft</a>
+                </div>
+            </nav>
+        </header>  
+  
+  )
+}
+export default HeaderComponent
+
+step8:
+------
+	Create a EmployeeListComponent.js inside "components" folder.
+
+EmployeeListComponent.js
+------------------------
+import React from 'react'
+import { useState } from 'react'
+
+function EmployeeListComponent() 
+{
+  const [employees,setEmployees]= useState([]);
+
+  return (
+    <div className='container mt-5'>
+
+        <h4 className='text-center'> Employee Details </h4>
+
+        <div className='row mt-5'>
+        <table className='table table-bordered table-striped'>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>DOJ</th>
+                    <th>Department</th>
+                    <th>Designation</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    employees.map(employee =>{
+                        return <tr key={employee.id}>
+                                    <td>{employee.id}</td>
+                                    <td>{employee.name}</td>
+                                    <td>{employee.doj}</td>
+                                    <td>{employee.dept.departName}</td>
+                                    <td>{employee.dept.designation}</td>
+                                    <td></td>
+                                </tr>
+                    })
+                }
+            </tbody>
+        </table>
+        </div>
+    </div>
+  )
+}
+
+export default EmployeeListComponent
+
+step9:
+------
+	Create a FooterComponent.js file inside "components" folder.
+
+FooterComponent.js 
+---------
+import React from 'react'
+import '../App.css';
+
+function FooterComponent() {
+  return (
+    <footer className='footer'>
+        <div>&copy;All Right Reserved - 2025 by Niyaz Sir </div>
+    </footer>
+  )
+}
+export default FooterComponent
+	
+step10:
+-------
+	Add the CSS code inside App.css file.
+
+App.css
+-------
+.footer
+{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:35px;
+  background-color: #f5f6fa;
+  font-weight: thin;
+  text-align: center;
+  line-height: 30px;
+}
+
+step11:
+------
+	Call HeaderComponent, EmployeeListComponent and FooterComponent from App.js file.
+
+App.js 
+-------
+import React from 'react'
+import HeaderComponent from './components/HeaderComponent'
+import EmployeeListComponent from './components/EmployeeListComponent'
+import FooterComponent from './components/FooterComponent'
+import './App.css';
+
+function App() {
+  return (
+    <div className="bgColor">
+
+        <HeaderComponent/>
+
+        <EmployeeListComponent/>
+
+        <FooterComponent/>
+        
+    </div>
+  )
+}
+
+export default App
+
+step12:
+------
+	Now add the CSS code to change background color.
+
+App.css
+-------
+.footer
+{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:35px;
+  background-color: #f5f6fa;
+  font-weight: thin;
+  text-align: center;
+  line-height: 30px;
+}
+.bgColor
+{
+  height: 100vh;
+  background: linear-gradient(cyan,blue);
+}
+
+
+step13:
+-------
+	Run the react application.
+	ex:
+		npm start 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
